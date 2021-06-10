@@ -1,12 +1,17 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+require('dotenv').config();
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const paymentsRouter = require('./routes/payments');
+const ordersRouter = require('./routes/orders');
+const coursesRouter = require('./routes/courses');
+const mediaRouter = require('./routes/media');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -16,5 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/media', mediaRouter);
+app.use('/payments', paymentsRouter);
+app.use('/orders', ordersRouter);
+app.use('/courses', coursesRouter);
 
 module.exports = app;
