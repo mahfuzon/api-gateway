@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const mediaHAndler = require('./handler/media')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('service media');
-});
+router.post('/', mediaHAndler.create);
 
 module.exports = router;
