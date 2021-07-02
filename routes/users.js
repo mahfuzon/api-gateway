@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const userHAndler = require('./handler/user')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('service users');
-});
+router.post('/register', userHAndler.register);
 
 module.exports = router;
