@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
             expiresIn: JWT_REFRESH_TOKEN_EXPIRED
         });
 
-        await axios.post(`${URL_SERVICE_USER}/refresh_tokens/`, {
+        await axios.post(`${URL_SERVICE_USER}/refresh-tokens/`, {
             user_id: response.data.data.id,
             token: refresh_token
         });
