@@ -33,7 +33,7 @@ app.use('/users', usersRouter);
 app.use('/media', mediaRouter);
 app.use('/payments', paymentsRouter);
 app.use('/orders', ordersRouter);
-app.use('/courses', verifyToken, coursesRouter);
+app.use('/courses', coursesRouter);
 app.use('/refresh-tokens', tokenRouter);
 app.use('/mentors', verifyToken, mentorRouter);
 
