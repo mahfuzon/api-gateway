@@ -13,6 +13,7 @@ const chaptersRouter = require('./routes/chapters');
 const mediaRouter = require('./routes/media');
 const tokenRouter = require('./routes/refresh_token');
 const mentorRouter = require('./routes/mentors');
+const lessonRouter = require('./routes/lesson');
 
 const verifyToken = require('./middleware/verify-token');
 
@@ -38,5 +39,6 @@ app.use('/courses', coursesRouter);
 app.use('/chapters', chaptersRouter);
 app.use('/refresh-tokens', tokenRouter);
 app.use('/mentors', verifyToken, mentorRouter);
+app.use('/lessons', verifyToken, lessonRouter);
 
 module.exports = app;
