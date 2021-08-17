@@ -17,6 +17,7 @@ const lessonRouter = require('./routes/lesson');
 const imageCourseRouter = require('./routes/imageCourses');
 const myCourseRouter = require('./routes/myCourses');
 const reviewRouter = require('./routes/reviews');
+const webhookRouter = require('./routes/webhook');
 
 const verifyToken = require('./middleware/verify-token');
 
@@ -46,5 +47,6 @@ app.use('/lessons', verifyToken, lessonRouter);
 app.use('/image-courses', verifyToken, imageCourseRouter);
 app.use('/my-courses', verifyToken, myCourseRouter);
 app.use('/reviews', verifyToken, reviewRouter);
+app.use('/webhook', webhookRouter);
 
 module.exports = app;
