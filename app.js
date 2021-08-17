@@ -6,7 +6,6 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const paymentsRouter = require('./routes/payments');
 const ordersRouter = require('./routes/orders');
 const coursesRouter = require('./routes/courses');
 const chaptersRouter = require('./routes/chapters');
@@ -37,8 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/media', mediaRouter);
-app.use('/payments', paymentsRouter);
-app.use('/orders', ordersRouter);
 app.use('/courses', coursesRouter);
 app.use('/chapters', chaptersRouter);
 app.use('/refresh-tokens', tokenRouter);
@@ -48,5 +45,6 @@ app.use('/image-courses', verifyToken, imageCourseRouter);
 app.use('/my-courses', verifyToken, myCourseRouter);
 app.use('/reviews', verifyToken, reviewRouter);
 app.use('/webhook', webhookRouter);
+app.use('/orders', verifyToken, ordersRouter);
 
 module.exports = app;

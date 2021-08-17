@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const orderPaymentHandler = require('./handler/order-payment');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('service orders');
-});
+router.get('/', orderPaymentHandler.getOrder);
 
 module.exports = router;
